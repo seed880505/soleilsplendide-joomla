@@ -1,0 +1,143 @@
+/* media query break point */
+$xs-screen: "only screen and (max-width: 543px)";
+$sm-screen: "only screen and (min-width: 544px)";
+$md-screen: "only screen and (min-width: 768px)";
+$lg-screen: "only screen and (min-width: 979px)";
+$xl-screen: "only screen and (min-width: 1200px)";
+
+/* directory */
+$urlImages: "../img";
+
+/* variables */
+$paddingLayout: .9em;
+$marginLayout: .9em;
+$color1: #00CCFF;
+$color2: #00D8CC;
+$color3: #FF1769;
+$color4: #FF3300;
+$color5: #BAD80A;
+$color6: #1a1a1a;
+$color7: #2a2a2a;
+$color8: #515151;
+$color9: #CDCDCD;
+$color10: #F5F5F5;
+$color11: #1BA1E2;
+$color12: #E8F1F4;
+$color13: #00BCD4;
+$color14: #FF4081;
+$color15: #5bc0de;
+$opacity-menu: .65;
+$transition-menu: color .2s ease,background-color .2s ease,opacity .2s ease;
+
+/* functions */
+@mixin border_radius($radius: 5px) {
+  border-radius: $radius;
+}
+
+@mixin box_shadow($shadows...) {
+  box-shadow: $shadows;
+}
+
+@mixin box_gradient($color1: #999999, $color2: #444444) {
+  background-color: $color1;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($color1), to($color2)); /* Chrome, Safari 4+ */
+  background-image: -webkit-linear-gradient(top, $color1, $color2); /* Chrome 10-25, iOS 5+, Safari 5.1+ */
+  background-image: -moz-linear-gradient(top, $color1, $color2); /* Firefox 3.6-15 */
+  background-image: -o-linear-gradient(top, $color1, $color2); /* Opera 11.10-12.00 */
+  background-image: linear-gradient(to bottom, $color1, $color2); /* Chrome 26, Firefox 16+, IE 10+, Opera 12.10+ */
+}
+
+@mixin paddingLayout() {
+  padding: $paddingLayout;
+  box-sizing: border-box;
+}
+
+@mixin paddingLayoutV() {
+  padding-top: $paddingLayout;
+  padding-bottom: $paddingLayout;
+  box-sizing: border-box;
+}
+
+@mixin paddingLayoutH() {
+  padding-left: $paddingLayout;
+  padding-right: $paddingLayout;
+  box-sizing: border-box;
+}
+
+@mixin marginLayout() {
+  margin: $marginLayout;
+}
+
+@mixin marginLayoutV() {
+  margin-top: $marginLayout;
+  margin-bottom: $marginLayout;
+}
+
+@mixin marginLayoutH() {
+  margin-left: $marginLayout;
+  margin-right: $marginLayout;
+}
+
+@mixin resetStyle() {
+  a, a:visited {
+    text-decoration: none;
+  }
+  ol, ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+@mixin panelHeading() {
+  font-size: 1.8em;
+  padding: .2em .5em;
+  color: #ffffff;
+  background-color: $color6;
+  cursor: default;
+  vertical-align: middle;
+  z-index: 2;
+  box-shadow: -1px 6px 6px -6px rgba(0, 0, 0, 0.35);
+  font-weight: 500;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  position: relative;
+}
+
+/* common usage */
+@mixin SS_info_error() {
+  @include border_radius(4px);
+  @include box_shadow(0 2px 5px rgba(0, 0, 0, .15));
+  background-color: #F2DEDE;
+  color: #B94A48;
+  border: 1px solid #EED3D7;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+@mixin  SS_info_info() {
+  @include border_radius(4px);
+  @include box_shadow(0 2px 5px rgba(0, 0, 0, .15));
+  background-color: #d9edf7;
+  color: #3a87ad;
+  border: 1px solid #bce8f1;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+@mixin  SS_info_success() {
+  @include border_radius(4px);
+  @include box_shadow(0 2px 5px rgba(0, 0, 0, .15));
+  background-color: #dff0d8;
+  color: #468847;
+  border: 1px solid #d6e9c6;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+@mixin  SS_info_warning() {
+  @include border_radius(4px);
+  @include box_shadow(0 2px 5px rgba(0, 0, 0, .15));
+  background-color: #fcf8e3;
+  color: #c09853;
+  border: 1px solid #fbeed5;
+  text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}

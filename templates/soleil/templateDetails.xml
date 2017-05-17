@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="3.1" type="template" client="site">
+    <name>soleil</name>
+    <version>1.0</version>
+    <creationDate>01/01/2016</creationDate>
+    <author>Chenglong GUO</author>
+    <authorEmail>chenglong@soleilsplendide.com</authorEmail>
+    <copyright>Copyright (C) 2016 Open Source Matters, Inc. All rights reserved.</copyright>
+    <description>TPL_SOLEIL_XML_DESCRIPTION</description>
+    <files>
+        <filename>component.php</filename>
+        <filename>error.php</filename>
+        <filename>favicon.ico</filename>
+        <filename>index.php</filename>
+        <filename>templateDetails.xml</filename>
+        <filename>template_preview.png</filename>
+        <filename>template_thumbnail.png</filename>
+        <folder>css</folder>
+        <folder>html</folder>
+        <folder>img</folder>
+        <folder>js</folder>
+        <folder>language</folder>
+    </files>
+    <positions>
+        <position>menu</position>
+        <position>mostreadarticle</position>
+        <position>lastestarticle</position>
+        <position>footer</position>
+        <position>search</position>
+    </positions>
+    <languages folder="language">
+        <language tag="en-GB">en-GB/en-GB.tpl_soleil.ini</language>
+        <language tag="en-GB">en-GB/en-GB.tpl_soleil.sys.ini</language>
+    </languages>
+    <config>
+        <fields name="params">
+            <fieldset name="advanced">
+                <field name="logoFile" class="" type="media" default="" label="TPL_SOLEIL_LOGO_LABEL" description="TPL_SOLEIL_LOGO_DESC" /> 
+                <field name="sitetitle"  type="text" default="" label="JGLOBAL_TITLE" description="JFIELD_ALT_PAGE_TITLE_LABEL" filter="string"/>
+                <field name="sitedescription"  type="text" default="" label="JGLOBAL_DESCRIPTION" description="JGLOBAL_SUBHEADING_DESC" filter="string"/>
+                <field name="googleFontHeader" type="radio" class="btn-group btn-group-yesno" default="1" label="TPL_SOLEIL_FONT_LABEL_HEADER" description="TPL_SOLEIL_FONT_LABEL_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="googleFontNameHeader" class="" type="text" default="Niconne" label="TPL_SOLEIL_FONT_NAME_LABEL_HEADER" description="TPL_SOLEIL_FONT_NAME_DESC_HEADER" />
+                <field name="googleFontContent" type="radio" class="btn-group btn-group-yesno" default="1" label="TPL_SOLEIL_FONT_LABEL_CONTENT" description="TPL_SOLEIL_FONT_DESC_CONTENT">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="googleFontNameContent" class="" type="text" default="Open+Sans" label="TPL_SOLEIL_FONT_NAME_LABEL_CONTENT" description="TPL_SOLEIL_FONT_NAME_DESC_CONTENT" />
+                <field name="googleAnalytics" type="radio" class="btn-group btn-group-yesno" default="1" label="TPL_SOLEIL_GOOGLE_ANALYTICS_LABEL" description="TPL_SOLEIL_GOOGLE_ANALYTICS_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="googleAdSense" type="radio" class="btn-group btn-group-yesno" default="1" label="TPL_SOLEIL_GOOGLE_ADSENSE_LABEL" description="TPL_SOLEIL_GOOGLE_ADSENSE_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+                <field name="codeHighlight" type="radio" class="btn-group btn-group-yesno" default="1" label="TPL_SOLEIL_CODE_HIGHLIGHT_LABEL" description="TPL_SOLEIL_CODE_HIGHLIGHT_DESC">
+                    <option value="1">JYES</option>
+                    <option value="0">JNO</option>
+                </field>
+            </fieldset>
+        </fields>
+    </config>
+</extension>
