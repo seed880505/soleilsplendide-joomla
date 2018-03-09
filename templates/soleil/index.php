@@ -1,4 +1,11 @@
 <?php
+/**
+ * @package     Joomla.Site
+ * @subpackage  Templates.soleil
+ *
+ * @copyright   Copyright (C) 2005 - 2018 Open Source Matters, Inc. All rights reserved.
+ * @license     GNU General Public License version 2 or later; see LICENSE.txt
+ */
 
 defined('_JEXEC') or die;
 
@@ -27,19 +34,19 @@ $sitename = $app->get('sitename');
 // Add JavaScript Frameworks
 JHtml::_('bootstrap.framework');
 
-// Add Stylesheets
-JHtml::_('stylesheet', 'soleil.min.css', array('version' => 'auto', 'relative' => true));
-
 // Add html5 shiv
 JHtml::_('script', 'jui/html5.js', array('version' => 'auto', 'relative' => true, 'conditional' => 'lt IE 9'));
 
 // Add template js
-JHtml::_('script', 'soleil.min.js', array('version' => 'auto', 'relative' => true));
+JHtml::_('script', 'js/soleil.js', array('version' => 'auto', 'relative' => true));
+
+// Add template stylesheets
+JHtml::_('stylesheet', 'css/soleil.css', array('version' => 'auto', 'relative' => true));
 
 // Code Highlight
 if ($this->params->get('codeHighlight')) {
-    JHtml::_('stylesheet', '/js/highlightjs/monokai-sublime.css', array('version' => 'auto', 'relative' => true));
-    JHtml::_('script', 'highlightjs/highlight.pack.js', array('version' => 'auto', 'relative' => true));
+    JHtml::_('stylesheet', 'node_modules/highlightjs/styles/xcode.css', array('version' => 'auto', 'relative' => true));
+    JHtml::_('script', 'node_modules/highlightjs/highlight.pack.min.js', array('version' => 'auto', 'relative' => true));
     $this->addScriptDeclaration('jQuery(document).ready(function(){if(hljs){hljs.initHighlightingOnLoad();}});');
 }
 
@@ -51,15 +58,6 @@ if ($this->params->get('logoFile')) {
 // Load optional RTL Bootstrap CSS
 JHtml::_('bootstrap.loadCss', false, $this->direction);
 
-// Google font
-if ($this->params->get('googleFontHeader')) {
-    JHtml::_('stylesheet', 'https://fonts.googleapis.com/css?family=' . $this->params->get('googleFontNameHeader'));
-}
-
-if ($this->params->get('googleFontContent')) {
-    JHtml::_('stylesheet', 'https://fonts.googleapis.com/css?family=' . $this->params->get('googleFontNameContent'));
-}
-
 ?>
 <!DOCTYPE html>
 <html lang="<?php echo $this->language; ?>" dir="<?php echo $this->direction; ?>">
@@ -67,22 +65,6 @@ if ($this->params->get('googleFontContent')) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <jdoc:include type="head"/>
   <link rel="apple-touch-icon" href="<?php echo $this->baseurl ?>/templates/<?php echo $this->template ?>/apple-touch-icon.png">
-
-    <?php if ($this->params->get('googleFontHeader')) : ?>
-      <style type="text/css">
-        .site-title, .site-description {
-          font-family: '<?php echo str_replace('+', ' ', $this->params->get('googleFontNameHeader')); ?>', Helvetica, Arial, sans-serif;
-        }
-      </style>
-    <?php endif; ?>
-
-    <?php if ($this->params->get('googleFontContent')) : ?>
-      <style type="text/css">
-        body {
-          font-family: '<?php echo str_replace('+', ' ', $this->params->get('googleFontNameContent')); ?>', Helvetica, Arial, sans-serif;
-        }
-      </style>
-    <?php endif; ?>
 </head>
 
 <body class="site <?php echo $option
@@ -92,10 +74,10 @@ if ($this->params->get('googleFontContent')) {
     . ($itemid ? ' itemid-' . $itemid : '')
     . ($this->direction == 'rtl' ? ' rtl' : '');
 ?>">
-<div class="container-fluid">
-  <div class="row-fluid">
+<div class="container<?php echo ($params->get('fluidContainer') ? '-fluid' : ''); ?>">
+  <div class="row">
     <!-- Header -->
-    <header class="header span3" role="banner">
+    <header class="header col-3" role="banner">
         <?php if (isset($logo)) : ?>
           <a href="<?php echo $this->baseurl; ?>/"><?php echo $logo; ?></a>
         <?php endif; ?>
@@ -123,16 +105,16 @@ if ($this->params->get('googleFontContent')) {
     </header>
 
     <!-- Content -->
-    <div class="content span9">
-      <div class="row-fluid">
-        <main role="main" class="main span8">
+    <div class="content col-9">
+      <div class="row">
+        <main role="main" class="main col-8">
           <!-- Begin Content -->
           <jdoc:include type="message"/>
           <jdoc:include type="component"/>
           <!-- End Content -->
         </main>
 
-        <div class="sidebar span4">
+        <div class="sidebar col-4">
             <?php if ($this->countModules('mostreadarticle')) : ?>
               <section class="mostreadarticle">
                 <h2 class="site-title">Most Read</h2>
@@ -144,24 +126,6 @@ if ($this->params->get('googleFontContent')) {
               <section class="lastestarticle">
                 <h2 class="site-title">Lastest Article</h2>
                 <jdoc:include type="modules" name="lastestarticle" style="none"/>
-              </section>
-            <?php endif; ?>
-
-            <?php if ($this->params->get('googleAdSense')) : ?>
-              <section>
-                <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                <!-- First ad -->
-                <ins class="adsbygoogle"
-                     style="display:block"
-                     data-ad-client="ca-pub-4209198078307665"
-                     data-ad-slot="1660972833"
-                     data-ad-format="auto"></ins>
-                <script>
-                  (adsbygoogle = window.adsbygoogle || []).push({
-                    google_ad_client: "ca-pub-4209198078307665",
-                    enable_page_level_ads: jQuery(window).width() < 768
-                  });
-                </script>
               </section>
             <?php endif; ?>
         </div>

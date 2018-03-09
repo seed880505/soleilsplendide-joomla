@@ -27,7 +27,7 @@ $color13: #00BCD4;
 $color14: #FF4081;
 $color15: #5bc0de;
 $opacity-menu: .65;
-$transition-menu: color .2s ease,background-color .2s ease,opacity .2s ease;
+$transition-menu: color .2s ease, background-color .2s ease, opacity .2s ease;
 
 /* functions */
 @mixin border_radius($radius: 5px) {
@@ -115,7 +115,7 @@ $transition-menu: color .2s ease,background-color .2s ease,opacity .2s ease;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-@mixin  SS_info_info() {
+@mixin SS_info_info() {
   @include border_radius(4px);
   @include box_shadow(0 2px 5px rgba(0, 0, 0, .15));
   background-color: #d9edf7;
@@ -124,7 +124,7 @@ $transition-menu: color .2s ease,background-color .2s ease,opacity .2s ease;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-@mixin  SS_info_success() {
+@mixin SS_info_success() {
   @include border_radius(4px);
   @include box_shadow(0 2px 5px rgba(0, 0, 0, .15));
   background-color: #dff0d8;
@@ -133,7 +133,7 @@ $transition-menu: color .2s ease,background-color .2s ease,opacity .2s ease;
   text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
 }
 
-@mixin  SS_info_warning() {
+@mixin SS_info_warning() {
   @include border_radius(4px);
   @include box_shadow(0 2px 5px rgba(0, 0, 0, .15));
   background-color: #fcf8e3;

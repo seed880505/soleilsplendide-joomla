@@ -1,2 +1,2 @@
 # soleilsplendide-joomla
-Joomla v3.7
+Joomla v3.8
